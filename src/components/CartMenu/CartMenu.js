@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from '../Button/Button';
+import CartItem from '../CartIten/CartItem';
 import { calculatePrice } from '../utils';
 import './cartMenu.css';
 
@@ -8,7 +9,7 @@ function CartMenu({ items, onClick }) {
   return (
     <div className="cart-menu">
       <div className="cart-menu_games-list">
-        { items.length > 0 ? items.map((game) => game.title) : "Корзина пуста" }
+        {items.length > 0 ? items.map((game) => <CartItem key={game.title} price={game.price} title={game.title} id={game.id} />) : "Корзина пуста"}
       </div>
       {
         items.length > 0 ? (
@@ -21,7 +22,7 @@ function CartMenu({ items, onClick }) {
               Оформить заказ
             </Button>
           </div>
-         ) : null
+        ) : null
       }
     </div>
   );
