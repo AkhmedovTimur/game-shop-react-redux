@@ -1,6 +1,7 @@
 import React from 'react';
 import GameBuy from '../GameBuy/GameBuy';
 import GameCover from '../GameCover/GameCover';
+import GameGenre from '../GameGenre/GameGenre';
 import './gameItem.css'
 
 function GameItem({ game }) {
@@ -11,7 +12,7 @@ function GameItem({ game }) {
         <span className="game-item_title">{game.title}</span>
         <div className="game-item_genre">
           {
-            game.genres.map(genre => genre)
+            game.genres.map(genre => <GameGenre genre={genre} key={genre}/>)
           }
         </div>
         <div className="game-item_buy">
